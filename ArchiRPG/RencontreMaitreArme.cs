@@ -9,11 +9,20 @@ namespace ArchiRPG
 {
 	internal class RencontreMaitreArme : IRencontre
 	{
-		public Joueur Joueur { get; set; }
+		public Joueur joueur { get; set; }
+		
+		public void RencontreMaitreArme(Joueur joueur){
+			this.joueur = joueur;
+		}
 
-		public void LancerRencontre(Joueur joueur)
+		public Joueur LancerRencontre(Joueur joueur)
 		{
-			throw new NotImplementedException();
+			Insulter();
+			
+			var leveling = new Leveling();
+			joueur = leveling.MonterNiveau(joueur);
+			
+			return joueur;
 		}
 
 		public void Insulter(){
